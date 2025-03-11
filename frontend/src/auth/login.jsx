@@ -21,7 +21,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', formData); 
+      const response = await axios.post('https://react-express-mongodb-akpz.vercel.app/login', formData); 
       localStorage.setItem('loggedInUser', JSON.stringify(response.data)); 
       navigate('/users'); 
     } catch (err) {
