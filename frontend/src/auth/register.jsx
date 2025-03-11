@@ -21,6 +21,7 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     try {
       const response = await axiosInstance.post('https://react-express-mongodb-vgbd.vercel.app/api/users', formData);
       console.log('Usuario registrado:', response.data);
