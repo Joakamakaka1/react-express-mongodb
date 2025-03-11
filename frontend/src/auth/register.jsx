@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axiosInstance from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
@@ -22,7 +22,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://react-express-mongodb-akpz.vercel.app/', formData);
+      const response = await axiosInstance.post('/', formData);
       console.log('Usuario registrado:', response.data);
       navigate('/');
     } catch (err) {

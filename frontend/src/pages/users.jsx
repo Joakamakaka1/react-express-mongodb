@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../api";
+import axiosInstance from "../api";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -12,7 +12,7 @@ function Users() {
     // Obtener todos los usuarios
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("/");
+        const response = await axiosInstance.get("/");
         setUsers(response.data);
       } catch (error) {
         console.error("Error al obtener los usuarios:", error);
@@ -42,7 +42,7 @@ function Users() {
     };
 
     try {
-      const response = await axios.put(`/${loggedInUser._id}`, updatedUserData);
+      const response = await axiosInstance.put(`/${loggedInUser._id}`, updatedUserData);
       console.log("Usuario actualizado:", response.data);
       setLoggedInUser(response.data);
       setEditMode(false);
@@ -55,7 +55,7 @@ function Users() {
   // Función para eliminar usuario
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`/${loggedInUser._id}`);
+      const response = await axiosInstance.delete(`/${loggedInUser._id}`);
       localStorage.removeItem("loggedInUser");
       window.location.href = "/login";
     } catch (error) {
