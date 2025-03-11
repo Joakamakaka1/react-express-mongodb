@@ -14,7 +14,10 @@ const app = express();
 connectDB();
 
 // Habilitar CORS
-const allowedOrigins = ['https://react-express-mongodb-vgbd.vercel.app', 'http://localhost:5000/api/users'];
+const allowedOrigins = [
+  'https://react-express-mongodb-nu.vercel.app/', 
+  'http://localhost:5173/'
+];
 
 app.use(cors({
   origin: allowedOrigins, // Permite solicitudes solo desde el frontend
